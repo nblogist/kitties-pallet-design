@@ -1,14 +1,15 @@
+<!-- For my own reference: https://discordapp.com/channels/772968587060445244/772968587060445251/813166983364739095 -->
 # Kitties Pallet Design
 
 This is a design document submitted for substrate developer academy assignment 2 (Kitties Pallet)
 
 ## Storage (decl_storage!)
 
-    * kitties: map Vec<u128> => T::AccountId
+    * kitties: double_map (kitty_dna: u128, owner: AccountId )  => kitty_id:u32
 
 ## Events (decl_event!)
 
-    * Kitty_Created(Vec<u128>, AccountId)
+    * Kitty_Created(u128, AccountId, u32) 
 
 ## Errors (decl_error!)
 
@@ -17,4 +18,4 @@ This is a design document submitted for substrate developer academy assignment 2
 
 ## Calls (decl_module!)
 
-    * fn creatKitty() -> Kitty_Created(dna, owner)
+    * fn creatKitty() -> Kitty_Created(dna, owner, kitty_id)
